@@ -1,0 +1,52 @@
+#:kivy 1.10.1
+<BaseWindow>:
+    url: target_url_text_field
+    response_body: response_body_text_field
+
+    GridLayout:
+        cols: 2
+        rows: 3
+        width: root.width
+        height: root.height
+        Label:
+            text: "URL:"
+        TextInput:
+            id: target_url_text_field
+            size: 400, 30
+            text: "https://www.devdungeon.com"
+            multiline: False
+        Label:
+            text: "Method:"
+        GridLayout:
+            cols: 3
+            rows: 2
+            Button:
+                text: 'GHET'
+                size_hint_y: None
+                height: 44
+                on_release: root.perform_http_request("GET")
+            Button:
+                text: 'PUT'
+                size_hint_y: None
+                height: 44
+                on_release: root.perform_http_request("PUT")
+            Button:
+                text: 'POST'
+                size_hint_y: None
+                height: 44
+                on_release: root.perform_http_request("POST")
+            Button:
+                text: 'PATCH'
+                size_hint_y: None
+                height: 44
+                on_release: root.perform_http_request("PATCH")
+            Button:
+                text: 'DELETE'
+                size_hint_y: None
+                height: 44
+                on_release: root.perform_http_request("DELETE")
+        Label:
+            text: "Response body:"
+        TextInput:
+            id: response_body_text_field
+            multiline: True
