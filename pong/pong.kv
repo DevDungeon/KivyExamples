@@ -1,0 +1,44 @@
+#:kivy 1.10.1
+<PongGameWidget>:
+    ball: main_pong_ball
+    player1: player1_paddle
+    player2: player2_paddle
+    canvas:
+        Rectangle:
+            pos: self.center_x - 5, 0
+            size: 10, self.height
+    Label:
+        font_size: 70
+        center_x: root.width / 4
+        top: root.top - 50
+        text: "Left label"
+    Label:
+        font_size: 70
+        center_x: root.width * 3/4
+        top: root.top - 150
+        text: "Right label"
+    PongBallWidget:
+        id: main_pong_ball
+        center: self.parent.center
+    PongPaddle:
+        id: player1_paddle
+        top: root.height / 2
+        center_x: 70
+    PongPaddle:
+        id: player2_paddle
+        top: root.height / 2
+        center_x: root.width - 150
+
+<PongBallWidget>:
+    size: 50, 50
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<PongPaddle>:
+    size: 10, 50
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: 10, 50
